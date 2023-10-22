@@ -4,7 +4,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ["https://deploy-mern-lwhq.vercel.app"],
+    origin: ["https://automated-offer-letter-generator.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true
 }))
