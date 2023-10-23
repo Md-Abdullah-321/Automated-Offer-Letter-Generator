@@ -6,7 +6,6 @@ require('dotenv').config();
 app.use(cors({
     origin: "http://localhost:5173", // Update this with your actual frontend origin
     methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true
 }));
 
 const mongoose = require("mongoose");
