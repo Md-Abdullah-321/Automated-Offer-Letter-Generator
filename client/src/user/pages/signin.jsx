@@ -17,16 +17,18 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(formData);
     const url =
       "https://automated-offer-letter-generator.vercel.app/api/user/signin";
     const requestData = {
       method: "POST",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...formData }),
+      body: JSON.stringify({
+        email: formData.email.trim(),
+        password: formData.password.trim(),
+      }),
     };
 
     try {
