@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 
 app.use(cors({
-    origin: ["https://automated-offer-letter-generator.vercel.app/"],
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true
 }))

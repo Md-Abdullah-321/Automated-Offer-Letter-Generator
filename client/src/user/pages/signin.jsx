@@ -1,20 +1,57 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+const init = {
+  email: "",
+  password: "",
+};
 function SignIn() {
+  const [formData, setFormData] = useState({ ...init });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch(
+      "https://automated-offer-letter-generator.vercel.app/api/user/signin",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData }),
+      }
+    );
+
+    const data = await res.json();
+
+    console.log(data);
+  };
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="bg-slate-100 flex flex-col gap-4 p-3 max-w-lg w-full rounded-lg">
         <h1 className="text-center text-2xl font-semibold">SignIn Form</h1>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
+            value={formData.email}
+            onChange={handleChange}
             placeholder="Enter email"
             className="p-3 rounded-lg outline-none"
           />
           <input
             type="password"
             name="password"
+            value={formData.password}
+            onChange={handleChange}
             placeholder="Enter password"
             className="p-3 rounded-lg outline-none"
           />

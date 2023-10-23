@@ -5,9 +5,9 @@ const userRouter = express.Router();
 
 userRouter.post("/signup", signup);
 userRouter.post("/signin", signin);
-userRouter.get("/test", (req, res) => {
-    res.json("I am test route");
-});
+// userRouter.get("/test", (req, res) => {
+//     res.json("I am test route");
+// });
 
 
 module.exports = userRouter;
