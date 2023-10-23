@@ -3,9 +3,8 @@ const express = require("express");
 const app = express();
 require('dotenv').config();
 
-app.use(cors({
-  origin: '*'
-}));
+app.use(cors({ origin: 'http://localhost:5173' }));
+
 
 const mongoose = require("mongoose");
 const userRouter = require("./src/routes/user.route.js");
