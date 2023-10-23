@@ -13,12 +13,12 @@ const mongoose = require("mongoose");
 const userRouter = require("./src/routes/user.route.js");
 
 
+
+app.get('/', (req, res, next) => {
+  res.json("Hello World, How are you?");
+})
 app.use(express.json());
 app.use('/api/user', userRouter);
-  
-app.get('/', (req, res, next) => {
-    res.json("Hello World, How are you?");
-})
 
 app.listen(3000, () => {
     console.log('App is running on port 3000');
