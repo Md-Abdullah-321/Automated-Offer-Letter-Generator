@@ -18,22 +18,31 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(
-      "https://automated-offer-letter-generator.vercel.app/api/user/signin",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...formData }),
+    const url =
+      "https://automated-offer-letter-generator.vercel.app/api/user/signin";
+    const requestData = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...formData }),
+    };
+
+    try {
+      const response = await fetch(url, requestData);
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.error(`Request failed with status ${response.status}`);
       }
-    );
-
-    const data = await res.json();
-
-    console.log(data);
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
+
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="bg-slate-100 flex flex-col gap-4 p-3 max-w-lg w-full rounded-lg">

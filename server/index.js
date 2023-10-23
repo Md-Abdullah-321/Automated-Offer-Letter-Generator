@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 const userRouter = require("./src/routes/user.route.js");
 
 app.get('/', (req, res, next) => {
-  res.json("Hello World, How are you?");
+  res.json("Hello World, How are you brother?");
 });
 
 app.use(express.json());
