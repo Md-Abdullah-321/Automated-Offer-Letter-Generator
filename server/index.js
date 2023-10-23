@@ -3,11 +3,13 @@ const express = require("express");
 const app = express();
 require('dotenv').config();
 
-app.use(cors({
-    origin: ["http://localhost:5173"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true
-}))
+// app.use(cors({
+//     origin: ["http://localhost:5173"],
+//     methods: ["POST", "GET", "DELETE", "PUT"],
+//     credentials: true
+// }))
+
+app.use(cors());
 
 const mongoose = require("mongoose");
 const userRouter = require("./src/routes/user.route.js");
