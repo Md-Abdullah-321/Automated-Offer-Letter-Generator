@@ -32,7 +32,7 @@ function SignIn() {
 
     try {
       const response = await fetch(url, requestData);
-
+      console.log(response);
       if (response.ok) {
         const data = await response.json();
         console.log(data);
