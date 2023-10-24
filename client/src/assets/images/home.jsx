@@ -1,8 +1,8 @@
-import logo from "/logo.jpg";
-import mentorship from "/mentorship.jpg";
-import program from "/programs.jpg";
-import user from "/user.jpeg";
-import work from "/work.jpg";
+import logo from "./logo.jpg";
+import mentorship from "./mentorship.jpg";
+import program from "./programs.jpg";
+import user from "./user.jpeg";
+import work from "./work.jpg";
 
 function UserDashboard() {
   return (
